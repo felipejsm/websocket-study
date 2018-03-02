@@ -41,5 +41,40 @@
         var socket = new WebSocket("ws://echo.websocket.org");
         console.log(socket);
     }
+    // 4 events in ws: ONOPEN | ONMESSAGE | ONCLOSE | ONERROR
+    socket.onopen = function(event) {
+        console.log("Connection established");
+
+        let label = document.getElementById("status-label");
+        label.innerHTML = "Connection established!";
+    }
+    socket.onmessage = function(event) {
+        console.log("Data received");
+        if(typeof event.data === "string") {
+            let label = document.getElementById("status-label");
+            label.innerHTML = event.data;
+        }
+    }
+    socket.onclose = function(event) {
+        console.log("Connection Closed");
+
+        var code     = event.code;
+        var reason   = event.reason;
+        var wasClean = event.wasClean;
+
+        var label = document.getElementById("status-label");
+        if(wasClean) {
+            label.innerHTML = "Connection closed normally";
+        } else {
+            label.innerHTML = "Connection closed with message "+reason+" (Code:"+code+")";
+        }
+    }
+    socket.onerror = function(event) {
+        console.log("Error ocurred");
+
+        var label = document.getElementById("status-label");
+        label.innerHTML = "Error: "+event;
+    }
+
 </script>
 </html>
