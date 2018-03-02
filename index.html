@@ -25,13 +25,21 @@
 </body>
 <script>
     let buttonSend = document.getElementById("send-button");
+  
     buttonSend.onclick = function() {
         console.log("Button clicked!");
         if(window.WebSocket) {
             console.log("WebSocket Supported");
+            websocketUsage();
+            
         } else {
             console.log("WebSocket not supported =/");
         }
+    }
+    function  websocketUsage() {
+        // When this object is constructed, it opens a connection to the server
+        var socket = new WebSocket("ws://echo.websocket.org");
+        console.log(socket);
     }
 </script>
 </html>
