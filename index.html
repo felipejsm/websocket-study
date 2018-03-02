@@ -27,6 +27,11 @@
     let buttonSend = document.getElementById("send-button");
     buttonSend.onclick = function() {
         console.log("Button clicked!");
+        if(window.WebSocket) {
+            console.log("WebSocket Supported");
+        } else {
+            console.log("WebSocket not supported =/");
+        }
     }
 </script>
 </html>
