@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WebSocket</title>
+    <style>
+        h1 {
+            color: blue;
+            text-align: center;
+            font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+            font-size: 1em;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>HTML 5 Webocket chat. </h1>
+    <input type="text" id="text-view" />
+    <input type="button" id="send-button" value="send!"/>
+    <input type="button" id="stop-button" value="stop"/>
+    <br/>
+    <label id="status-label">Status</label>
+</body>
+<script>
+    let buttonSend = document.getElementById("send-button");
+    buttonSend.onclick = function() {
+        console.log("Button clicked!");
+    }
+</script>
+</html>
